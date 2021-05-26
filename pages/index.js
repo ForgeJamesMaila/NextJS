@@ -7,13 +7,11 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
 
   const [data, setData] = useState('');
-
-  useEffect(() => {
-    (async function () {
-      const { message } = await( await fetch(`/api/Test`)).json();
-      setData(message);
-    })();
-  });
+  
+  useEffect(async () => {
+    const { message } = await( await fetch(`/api/Test`)).json();
+    setData(message);
+  },[]);
 
   return (
   <div className="home">
