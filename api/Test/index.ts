@@ -4,7 +4,10 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     const responseMessage = "Hello! This HTTP triggered function executed successfully."
     context.res = {
         // status: 200, /* Defaults to 200 */
-        text: responseMessage
+        body: { message: "Hello! From an azure function!" },
+        headers: {
+            'Content-Type': 'application/json'
+        }
     };
 
 };
